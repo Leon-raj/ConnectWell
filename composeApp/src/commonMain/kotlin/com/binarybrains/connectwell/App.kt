@@ -30,6 +30,7 @@ import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.sp
 import connectwell.composeapp.generated.resources.Res
 import connectwell.composeapp.generated.resources.account_circle_40px
 import connectwell.composeapp.generated.resources.chat_48px
@@ -47,7 +48,12 @@ fun App() {
         Scaffold(
             topBar = {homeTopBar()},
             bottomBar = {homeBottomBar()}
-        ){}
+        ){innerPadding ->
+            Text(modifier = Modifier.padding(innerPadding),
+                fontSize = 30.sp,
+                text = "\n  Welcome Your Name!\n\n  \"Daily Quote by AI\""
+            )
+        }
     }
 }
 
