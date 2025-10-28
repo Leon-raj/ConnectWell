@@ -81,6 +81,10 @@ fun BottomNavigationBar() {
                 onClick = {
                     selectedIndex = index
                 },
+                label = {
+                    Text(text = item.title)
+                },
+                alwaysShowLabel = false,
                 icon = {
                     BadgedBox(
                         badge = {
