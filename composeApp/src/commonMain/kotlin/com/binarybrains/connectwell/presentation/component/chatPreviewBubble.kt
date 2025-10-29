@@ -1,8 +1,6 @@
 package com.binarybrains.connectwell.presentation.component
 
-import androidx.collection.IntList
-import androidx.collection.MutableIntList
-import androidx.collection.intListOf
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
