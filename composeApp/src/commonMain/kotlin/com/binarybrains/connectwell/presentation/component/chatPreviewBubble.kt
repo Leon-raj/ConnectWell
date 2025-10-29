@@ -1,9 +1,13 @@
 package com.binarybrains.connectwell.presentation.component
 
+import androidx.collection.IntList
+import androidx.collection.MutableIntList
+import androidx.collection.intListOf
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -23,7 +27,7 @@ import connectwell.composeapp.generated.resources.pfp2
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 
-data class person(
+data class tempMsg(
     val name: String,
     val avatar: DrawableResource,
     val message: String
@@ -32,7 +36,11 @@ data class person(
 @Composable
 fun ChatPreviewBubble(modifier: Modifier = Modifier) {
 
-    val p1 = person("John Alfred", avatar = Res.drawable.pfp2, message = "Hello there!")
+    val p1 = tempMsg(
+        "John Alfred",
+        avatar = Res.drawable.pfp2,
+        message = "Hello there!"
+    )
 
     Surface(modifier = modifier) {
         Row(
@@ -47,7 +55,6 @@ fun ChatPreviewBubble(modifier: Modifier = Modifier) {
                 .clip(RoundedCornerShape(16.dp))
 
         ) {
-
             Image(painter = painterResource(p1.avatar),
                 contentDescription = "Avatar",
                 modifier = Modifier
@@ -55,6 +62,7 @@ fun ChatPreviewBubble(modifier: Modifier = Modifier) {
                     .size(48.dp)
                     .clip(CircleShape)
             )
+
             Column(modifier = Modifier.padding(8.dp)) {
                 Text(
                     text = p1.name,
@@ -69,6 +77,15 @@ fun ChatPreviewBubble(modifier: Modifier = Modifier) {
                     color = MaterialTheme.colorScheme.onSecondaryContainer,
                 )
             }
+
+            Spacer(modifier = Modifier.weight(1f))
+
+            Text(
+                text = "6:32 PM",  /* will add actual timestamp later */
+                fontSize = 14.sp,
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                modifier = Modifier.padding(top = 8.dp, end = 16.dp),
+            )
         }
     }
 }
