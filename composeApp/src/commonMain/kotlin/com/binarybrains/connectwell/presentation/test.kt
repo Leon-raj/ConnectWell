@@ -10,6 +10,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.binarybrains.connectwell.presentation.component.BottomNavigationBar
+import com.binarybrains.connectwell.presentation.component.ChatPreviewBubble
 import connectwell.composeapp.generated.resources.Res
 import connectwell.composeapp.generated.resources.account_circle_40px
 import org.jetbrains.compose.resources.painterResource
@@ -22,7 +23,7 @@ fun testPage(){
         topBar = {homeTopBar()},
         bottomBar = {BottomNavigationBar()}
     ){ innerPadding ->
-        SimpleChatBubble(modifier = Modifier.padding(innerPadding))
+        ChatPreviewBubble(modifier = Modifier.padding(innerPadding))
     }
 }
 
