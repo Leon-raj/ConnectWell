@@ -41,3 +41,6 @@ fun SimpleChatBubble(modifier: Modifier = Modifier) {
         }
     }
 }
+
+
+
