@@ -22,16 +22,6 @@ import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-
-@Composable
-fun bookingPage(){
-    Scaffold(
-        bottomBar = {BottomNavigationBar()}
-    ){ innerPadding ->
-        SimpleChatBubble(modifier = Modifier.padding(innerPadding))
-    }
-}
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchScreen(
@@ -84,12 +74,18 @@ fun SearchScreen(
     )
 }
 @Composable
-fun SearchScreen(viewModel: SearchViewModel) {
+fun bookingPage(viewModel: SearchViewModel) {
     val searchResults by viewModel.searchResults.collectAsStateWithLifecycle()
-
+/*
     SearchScreen(
         searchQuery = viewModel.searchQuery,
         searchResults = searchResults,
         onSearchQueryChange = { viewModel.onSearchQueryChange(it) }
-    )
+    ) */
+    Scaffold(
+        topBar = {SearchScreen(viewModel.searchQuery, searchResults, viewModel::onSearchQueryChange) },
+        bottomBar = {BottomNavigationBar()}
+    ){ innerPadding ->
+        SimpleChatBubble(modifier = Modifier.padding(innerPadding))
+    }
 }
