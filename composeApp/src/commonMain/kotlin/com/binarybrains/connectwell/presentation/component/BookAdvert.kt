@@ -27,7 +27,7 @@ fun BookAdvert(modifier: Modifier = Modifier, navController: NavController) {
             )
             .clip(RoundedCornerShape(16.dp))
             .clickable {
-                navController.navigate("Book")
+                navController.navigate("Booking")
             }
     ) {
 

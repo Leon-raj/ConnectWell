@@ -37,7 +37,7 @@ fun App() {
                 GroupChatPreviewPage(navController = navController)
             }
             composable("Booking"){
-                bookingPage(viewModel = SearchViewModel(), navcontroller = navController)
+                bookingPage(viewModel = SearchViewModel(), navController = navController)
             }
         })
 

@@ -75,7 +75,7 @@ fun SearchScreen(
     )
 }
 @Composable
-fun bookingPage(viewModel: SearchViewModel, navcontroller: NavController) {
+fun bookingPage(viewModel: SearchViewModel, navController: NavController) {
     val searchResults by viewModel.searchResults.collectAsStateWithLifecycle()
 /*
     SearchScreen(
@@ -85,7 +85,7 @@ fun bookingPage(viewModel: SearchViewModel, navcontroller: NavController) {
     ) */
     Scaffold(
         topBar = {SearchScreen(viewModel.searchQuery, searchResults, viewModel::onSearchQueryChange) },
-        bottomBar = {BottomNavigationBar(navController = navcontroller)}
+        bottomBar = {BottomNavigationBar(navController = navController)}
     ){ innerPadding ->
         SimpleChatBubble(modifier = Modifier.padding(innerPadding))
     }
