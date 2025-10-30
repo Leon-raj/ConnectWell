@@ -19,9 +19,9 @@ data class message(
 )
 
 @Composable
-fun SimpleChatBubble(modifier: Modifier = Modifier) {
+fun SimpleChatBubble(modifier: Modifier = Modifier, text: String) {
 
-    val msg = message("Hello there", "John")
+    val msg = message(text, "John")
     Surface(modifier = modifier) {
         Box(
             modifier = Modifier

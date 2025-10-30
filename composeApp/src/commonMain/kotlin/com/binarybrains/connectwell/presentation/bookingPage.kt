@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import connectwell.composeapp.generated.resources.account_circle_40px
 import org.jetbrains.compose.resources.painterResource
@@ -86,6 +87,9 @@ fun bookingPage(viewModel: SearchViewModel) {
         topBar = {SearchScreen(viewModel.searchQuery, searchResults, viewModel::onSearchQueryChange) },
         bottomBar = {BottomNavigationBar()}
     ){ innerPadding ->
-        SimpleChatBubble(modifier = Modifier.padding(innerPadding))
+        Text(modifier = Modifier.padding(innerPadding),
+            fontSize = 30.sp,
+            text = ""
+        )
     }
 }
