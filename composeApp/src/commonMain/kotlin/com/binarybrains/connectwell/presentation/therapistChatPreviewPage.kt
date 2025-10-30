@@ -2,6 +2,7 @@
 
 package com.binarybrains.connectwell.presentation
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -13,30 +14,27 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.sp
 import com.binarybrains.connectwell.presentation.component.BottomNavigationBar
+import com.binarybrains.connectwell.presentation.component.ChatPreviewBubble
+import com.binarybrains.connectwell.presentation.component.tempMsg
 import connectwell.composeapp.generated.resources.Res
 import connectwell.composeapp.generated.resources.account_circle_40px
 import org.jetbrains.compose.resources.painterResource
 
-
 @Composable
-fun homePage(){
+fun TherapyChatPreviewPage(modifier: Modifier = Modifier) {
     Scaffold(
-        topBar = {homeTopBar()},
+        topBar = {TherapyChatPreviewTopBar()},
         bottomBar = {BottomNavigationBar()}
     ){innerPadding ->
-        Text(modifier = Modifier.padding(innerPadding),
-            fontSize = 30.sp,
-            text = "\n  Welcome Your Name!\n\n  \"Daily Quote by AI\""
-        )
+        ChatPreviewBubble( modifier = Modifier.padding(innerPadding))
     }
 }
 
-
 @Composable
-fun homeTopBar() {
+fun TherapyChatPreviewTopBar() {
     TopAppBar(
         title = {
-            Text("ConnectWell")
+            Text("Therapy Chat")
         },
         actions = {
             IconButton(onClick = {/*placeholder*/ }) {
