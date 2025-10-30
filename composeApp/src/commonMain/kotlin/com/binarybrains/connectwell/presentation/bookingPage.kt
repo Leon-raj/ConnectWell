@@ -17,6 +17,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavController
 import connectwell.composeapp.generated.resources.account_circle_40px
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -74,7 +75,7 @@ fun SearchScreen(
     )
 }
 @Composable
-fun bookingPage(viewModel: SearchViewModel) {
+fun bookingPage(viewModel: SearchViewModel, navcontroller: NavController) {
     val searchResults by viewModel.searchResults.collectAsStateWithLifecycle()
 /*
     SearchScreen(
@@ -84,7 +85,7 @@ fun bookingPage(viewModel: SearchViewModel) {
     ) */
     Scaffold(
         topBar = {SearchScreen(viewModel.searchQuery, searchResults, viewModel::onSearchQueryChange) },
-        bottomBar = {BottomNavigationBar()}
+        bottomBar = {BottomNavigationBar(navController = navcontroller)}
     ){ innerPadding ->
         SimpleChatBubble(modifier = Modifier.padding(innerPadding))
     }

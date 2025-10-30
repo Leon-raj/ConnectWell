@@ -22,7 +22,6 @@ data class message(
 fun SimpleChatBubble(modifier: Modifier = Modifier) {
 
     val msg = message("Hello there", "John")
-    Surface(modifier = modifier) {
         Box(
             modifier = Modifier
                 .padding(16.dp)
@@ -39,7 +38,7 @@ fun SimpleChatBubble(modifier: Modifier = Modifier) {
                 modifier = Modifier.padding(16.dp)
             )
         }
-    }
+
 }
 
 

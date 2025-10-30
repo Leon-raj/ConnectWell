@@ -52,7 +52,7 @@ fun BottomChatBar() {
                 shape = androidx.compose.foundation.shape.CircleShape,
                 color = MaterialTheme.colorScheme.primaryContainer
             ),
-            onClick = {}
+            onClick = { }
         ){
             Icon(
                 painter = if(enteredText == ""){
