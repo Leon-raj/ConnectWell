@@ -20,4 +20,6 @@ dependencies {
     implementation(libs.ktor.serverNetty)
     testImplementation(libs.ktor.serverTestHost)
     testImplementation(libs.kotlin.testJunit)
+    val lifecycle_version = ""
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:$lifecycle_version")
 }
