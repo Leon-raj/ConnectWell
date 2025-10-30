@@ -45,6 +45,12 @@ fun BottomChatBar() {
             maxLines = 4
         )
 
+        var showDialog by remember { mutableStateOf(false) }
+        var mess = enteredText
+        if (showDialog) {
+            sendText(mess)
+        }
+
         IconButton(modifier = Modifier
             .padding(top = 16.dp, bottom = 4.dp, end = 16.dp)
             .size(48.dp)

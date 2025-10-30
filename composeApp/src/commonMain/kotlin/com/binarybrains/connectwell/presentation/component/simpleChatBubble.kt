@@ -19,7 +19,7 @@ data class message(
 )
 
 @Composable
-fun SimpleChatBubble(modifier: Modifier = Modifier) {
+fun SimpleChatBubble(modifier: Modifier = Modifier, text: String) {
 
     val msg = message("Hello there", "John")
         Box(
