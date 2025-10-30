@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavController
 import connectwell.composeapp.generated.resources.account_circle_40px
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -75,7 +76,7 @@ fun SearchScreen(
     )
 }
 @Composable
-fun bookingPage(viewModel: SearchViewModel) {
+fun bookingPage(viewModel: SearchViewModel, navController: NavController) {
     val searchResults by viewModel.searchResults.collectAsStateWithLifecycle()
 /*
     SearchScreen(
@@ -85,7 +86,7 @@ fun bookingPage(viewModel: SearchViewModel) {
     ) */
     Scaffold(
         topBar = {SearchScreen(viewModel.searchQuery, searchResults, viewModel::onSearchQueryChange) },
-        bottomBar = {BottomNavigationBar()}
+        bottomBar = {BottomNavigationBar(navController = navController)}
     ){ innerPadding ->
         Text(modifier = Modifier.padding(innerPadding),
             fontSize = 30.sp,

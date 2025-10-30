@@ -32,13 +32,7 @@ data class tempMsg(
 )
 
 @Composable
-fun ChatPreviewBubble(modifier: Modifier = Modifier) {
-
-    val p1 = tempMsg(
-        "John Alfred",
-        avatar = Res.drawable.pfp2,
-        message = "Hello there!"
-    )
+fun ChatPreviewBubble(modifier: Modifier = Modifier, msg: tempMsg) {
 
     Surface(modifier = modifier) {
         Row(
@@ -53,7 +47,7 @@ fun ChatPreviewBubble(modifier: Modifier = Modifier) {
                 .clip(RoundedCornerShape(16.dp))
 
         ) {
-            Image(painter = painterResource(p1.avatar),
+            Image(painter = painterResource(msg.avatar),
                 contentDescription = "Avatar",
                 modifier = Modifier
                     .padding(8.dp)
@@ -63,14 +57,14 @@ fun ChatPreviewBubble(modifier: Modifier = Modifier) {
 
             Column(modifier = Modifier.padding(8.dp)) {
                 Text(
-                    text = p1.name,
+                    text = msg.name,
                     fontSize = 18.sp,
                     fontWeight = MaterialTheme.typography.titleMedium.fontWeight,
                     color = MaterialTheme.colorScheme.onPrimaryContainer,
                 )
 
                 Text(
-                    text = p1.message,
+                    text = msg.message,
                     fontSize = 16.sp,
                     color = MaterialTheme.colorScheme.onSecondaryContainer,
                 )

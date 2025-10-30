@@ -9,8 +9,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import connectwell.composeapp.generated.resources.Res
 import connectwell.composeapp.generated.resources.chat_48px
 import connectwell.composeapp.generated.resources.chat_filled_48px
@@ -22,7 +27,7 @@ import connectwell.composeapp.generated.resources.robot_48px
 import connectwell.composeapp.generated.resources.robot_filled_48px
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
-
+import kotlin.math.absoluteValue
 
 
 data class navigationItem(
@@ -33,8 +38,11 @@ data class navigationItem(
     val badgeCount: Int = 0,
 )
 
+
+var selectedIndex by mutableStateOf(0)
+
 @Composable
-fun BottomNavigationBar() {
+fun BottomNavigationBar(navController: NavController) {
 
     val navigationItems = listOf(
         navigationItem(
@@ -50,7 +58,7 @@ fun BottomNavigationBar() {
             selectedIcon = Res.drawable.chat_filled_48px,
             unselectedIcon = Res.drawable.chat_48px,
             hasNews = false,
-            badgeCount = 2
+            badgeCount = 3
         ),
 
         navigationItem(
@@ -70,9 +78,6 @@ fun BottomNavigationBar() {
         )
     )
 
-    var selectedIndex by rememberSaveable {
-        mutableStateOf(0)
-    }
 
     NavigationBar {
         navigationItems.forEachIndexed { index, item ->
@@ -80,6 +85,7 @@ fun BottomNavigationBar() {
                 selected = selectedIndex == index,
                 onClick = {
                     selectedIndex = index
+                    navController.navigate(item.title)
                 },
                 label = {
                     Text(text = item.title)
