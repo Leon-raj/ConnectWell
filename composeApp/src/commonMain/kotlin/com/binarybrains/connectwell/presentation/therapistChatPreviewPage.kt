@@ -22,6 +22,25 @@ import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun TherapyChatPreviewPage(modifier: Modifier = Modifier) {
+
+    val TempMsg = ListOf(
+        TempMsg(
+            name = "Kevin DeBruyne",
+            avatar = Res.drawable.pfp3,
+            message = "Good morning!"
+        ),
+        TempMsg(
+            name = "Cole Palmer",
+            avatar = Res.drawable.pfp4,
+            message = "Greetings!"
+        ), 
+        TempMsg(
+            name = "Robert Lewandowski",
+            avatar = Res.drawable.pfp5,
+            message = "Hello! Hope you are having a good day"
+        )
+    )
+    
     Scaffold(
         topBar = {TherapyChatPreviewTopBar()},
         bottomBar = {BottomNavigationBar()}
